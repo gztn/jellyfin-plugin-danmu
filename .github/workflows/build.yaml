@@ -16,7 +16,7 @@ jobs:
           chmod +x ./build_plugin.sh
           TAG="v1.1.0"
           echo "${TAG}"
-          MSG=$(git tag -l --format='%(contents)' ${TAG))
+          MSG=$(git tag -l --format='%(contents)' ${TAG})
           echo "${MSG}"
       # - name: Test
       #   run: dotnet test --no-restore --verbosity normal
