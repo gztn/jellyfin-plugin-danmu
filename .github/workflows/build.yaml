@@ -11,18 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Get tags
-        run: git fetch --tags v1.1.0
+      - name: Get git tags
+        run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
       - name: Run shell
         run: |
           chmod +x ./build_plugin.sh
           TAG="v1.1.0"
           echo "${TAG}"
           MSG=$(git tag -l --format='%(contents)' ${TAG})
-          echo "################"
-          echo "${MSG}"
-          echo "################"
-          MSG=$(git show -s --format=%B ${TAG})
           echo "################"
           echo "${MSG}"
           echo "################"
