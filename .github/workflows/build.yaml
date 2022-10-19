@@ -17,6 +17,12 @@ jobs:
           TAG="v1.1.0"
           echo "${TAG}"
           MSG=$(git tag -l --format='%(contents)' ${TAG})
+          echo "################"
           echo "${MSG}"
+          echo "################"
+          MSG=$(git show -s --format=%B ${TAG})
+          echo "################"
+          echo "${MSG}"
+          echo "################"
       # - name: Test
       #   run: dotnet test --no-restore --verbosity normal
