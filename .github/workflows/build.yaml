@@ -12,8 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Get tags
-        run: git fetch --tags ${GITHUB_REF#refs/*/}
-      - name: Get tags
         run: git fetch --tags v1.1.0
       - name: Run shell
         run: |
