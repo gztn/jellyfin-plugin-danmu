@@ -14,6 +14,9 @@ jobs:
       - name: Run shell
         run: |
           chmod +x ./build_plugin.sh
-          git tag -l --format='%(contents)' ${GITHUB_REF#refs/*/}
+          TAG=${GITHUB_REF#refs/*/}
+          echo "::echo tag=${TAG}"
+          MSG=$(git tag -l --format='%(contents)' ${TAG)
+          echo "::echo MSG=${MSG}"
       # - name: Test
       #   run: dotnet test --no-restore --verbosity normal
